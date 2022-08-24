@@ -26,7 +26,7 @@ def main():
     args = param.args
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_path, use_fast=True)
-    model = AutoModelForSequenceClassification.from_pretrained('./contrastive_phobert_base')
+    model = AutoModelForSequenceClassification.from_pretrained('./contrastive_phobert_base', num_labels=10)
     for param in model.base_model.parameters():
         param.requires_grad = False
 
